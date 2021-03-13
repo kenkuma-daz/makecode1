@@ -19,5 +19,5 @@ let mySprite = sprites.create(img`
 controller.moveSprite(mySprite)
 let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 statusbar.value = 80
-statusbar.positionDirection(CollisionDirection.Top)
 mySprite.ay += 100
+statusbar.attachToSprite(mySprite, 10, 0)
