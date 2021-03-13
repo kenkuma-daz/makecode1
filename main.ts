@@ -1,11 +1,18 @@
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setVelocity(0, -100)
+})
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    mySprite.setVelocity(0, 200)
+})
 function setStatusBar (aSprite: Sprite) {
     statusbar = statusbars.create(20, 4, StatusBarKind.Health)
     statusbar.value = 100
     statusbar.attachToSprite(aSprite, 10, 0)
 }
 let statusbar: StatusBarSprite = null
+let mySprite: Sprite = null
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -23,5 +30,9 @@ let mySprite = sprites.create(img`
     . f f . f f f f f f f . . . . . 
     . . . . f f f . . . . . . . . . 
     `, SpriteKind.Player)
+mySprite.setStayInScreen(true)
 controller.moveSprite(mySprite, 100, 0)
+mySprite.setVelocity(0, 200)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 48))
 setStatusBar(mySprite)
+scene.cameraFollowSprite(mySprite)
