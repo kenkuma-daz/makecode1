@@ -1,8 +1,8 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorLight0, function (sprite, location) {
-	
+    game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, location) {
-	
+    game.over(true)
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     mySprite.setVelocity(0, 落下速度)
@@ -12,18 +12,11 @@ function setStatusBar (aSprite: Sprite) {
     statusbar.value = 100
     statusbar.attachToSprite(aSprite, 10, 0)
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    minimap.includeSprite(myMinimap, mySprite, MinimapSpriteScale.MinimapScale)
-})
-controller.B.onEvent(ControllerButtonEvent.Released, function () {
-    minimap.includeSprite(myMinimap, mySprite, MinimapSpriteScale.Octuple)
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setVelocity(0, 落下速度)
 })
 let statusbar: StatusBarSprite = null
 let 落下速度 = 0
-let myMinimap: minimap.Minimap = null
 let mySprite: Sprite = null
 tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(img`
@@ -44,8 +37,6 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-myMinimap = minimap.minimap()
-let mapSprite = sprites.create(minimap.getImage(myMinimap), SpriteKind.Player)
 mySprite.setStayInScreen(true)
 controller.moveSprite(mySprite, 100, 落下速度)
 mySprite.setVelocity(0, 落下速度)
@@ -53,3 +44,6 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 10))
 setStatusBar(mySprite)
 scene.cameraFollowSprite(mySprite)
 落下速度 = 100
+game.onUpdate(function () {
+	
+})
