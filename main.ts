@@ -4,6 +4,7 @@ function setStatusBar (aSprite: Sprite) {
     statusbar.attachToSprite(aSprite, 10, 0)
 }
 let statusbar: StatusBarSprite = null
+tiles.setTilemap(tilemap`level1`)
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f f f f . . . . . . 
@@ -24,4 +25,3 @@ let mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
 setStatusBar(mySprite)
-tiles.setTilemap(tilemap`level1`)
