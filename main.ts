@@ -29,9 +29,13 @@ scene.cameraFollowSprite(mySprite)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 48))
 setStatusBar(mySprite)
 game.onUpdate(function () {
-    if (controller.A.isPressed()) {
-        mySprite.vy = -200
+    if (mySprite.tileKindAt(TileDirection.Center, sprites.dungeon.stairNorth)) {
+        mySprite.vy = 0
     } else {
-        mySprite.vy = 200
+        if (controller.A.isPressed()) {
+            mySprite.vy = -200
+        } else {
+            mySprite.vy = 200
+        }
     }
 })
