@@ -1,3 +1,6 @@
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairNorth, function (sprite, location) {
+	
+})
 function setStatusBar (aSprite: Sprite) {
     statusbar = statusbars.create(20, 4, StatusBarKind.Health)
     statusbar.value = 100
@@ -30,7 +33,13 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(4, 48))
 setStatusBar(mySprite)
 game.onUpdate(function () {
     if (mySprite.tileKindAt(TileDirection.Center, sprites.dungeon.stairNorth)) {
-        mySprite.vy = 0
+        if (controller.up.isPressed()) {
+            mySprite.vy = -200
+        } else if (controller.down.isPressed()) {
+            mySprite.vy = 200
+        } else {
+            mySprite.vy = 0
+        }
     } else {
         if (controller.A.isPressed()) {
             mySprite.vy = -200
