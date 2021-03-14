@@ -1,20 +1,23 @@
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorLight0, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
     game.over(false)
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardWater, function (sprite, location) {
     game.over(true)
-})
-controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    mySprite.setVelocity(0, 落下速度)
 })
 function setStatusBar (aSprite: Sprite) {
     statusbar = statusbars.create(20, 4, StatusBarKind.Health)
     statusbar.value = 100
     statusbar.attachToSprite(aSprite, 10, 0)
 }
+function まぐまを表示 (行: number) {
+    for (let index = 0; index <= 15; index++) {
+        tiles.setTileAt(tiles.getTileLocation(index, 行), sprites.dungeon.hazardLava1)
+    }
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setVelocity(0, 落下速度)
 })
+let まぐまの高さ = 0
 let statusbar: StatusBarSprite = null
 let 落下速度 = 0
 let mySprite: Sprite = null
@@ -44,6 +47,8 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 10))
 setStatusBar(mySprite)
 scene.cameraFollowSprite(mySprite)
 落下速度 = 100
-game.onUpdate(function () {
-	
+forever(function () {
+    まぐまの高さ = まぐまの高さ + 1
+    まぐまを表示(まぐまの高さ)
+    pause(500)
 })

@@ -6,7 +6,10 @@
         "storyboard": "*",
         "corgio": "*",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
-        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1"
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.1",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.11.0"
     },
     "files": [
         "main.blocks",
