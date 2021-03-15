@@ -47,6 +47,7 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 10))
 setStatusBar(mySprite)
 scene.cameraFollowSprite(mySprite)
 落下速度 = 100
+let textSprite = textsprite.create("あふん", 10, 2)
 forever(function () {
     まぐまの高さ = まぐまの高さ + 1
     まぐまを表示(まぐまの高さ)

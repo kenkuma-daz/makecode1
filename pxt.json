@@ -9,7 +9,9 @@
         "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.1",
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
-        "tilemaps": "github:microsoft/pxt-tilemaps#v1.11.0"
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.11.0",
+        "darts": "*",
+        "pxt-circuit-playground-character-icons": "github:adafruit/Circuit-Playground-Character-Icons#v0.0.8"
     },
     "files": [
         "main.blocks",
